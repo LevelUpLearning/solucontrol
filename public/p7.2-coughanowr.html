@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ever Vino">
+<meta name="dcterms.date" content="2022-10-06">
+
+<title>Solucionaro de Control Automático de Procesos - 3&nbsp; Dos reactores en serie con un perturbación tipo impulso unitario</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./p5.1-coughanowr.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos reactores en serie con un perturbación tipo impulso unitario</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Solucionaro de Control Automático de Procesos</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Un solucionario para Control Automático</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Sistemas físicos de primer orden</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./p5.1-babatunde.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Un calentador que deja de funcionar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./p5.1-coughanowr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Sistemas físicos de segundo orden</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./p7.2-coughanowr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos reactores en serie con un perturbación tipo impulso unitario</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#problema-7.2-process-systems-analysis-and-control---coughanowr-leblanc" id="toc-problema-7.2-process-systems-analysis-and-control---coughanowr-leblanc" class="nav-link active" data-scroll-target="#problema-7.2-process-systems-analysis-and-control---coughanowr-leblanc">Problema 7.2 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</a>
+  <ul class="collapse">
+  <li><a href="#obtención-de-la-ecuación-en-transferencia" id="toc-obtención-de-la-ecuación-en-transferencia" class="nav-link" data-scroll-target="#obtención-de-la-ecuación-en-transferencia">Obtención de la ecuación en transferencia</a></li>
+  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos reactores en serie con un perturbación tipo impulso unitario</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ever Vino </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 6, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="problema-7.2-process-systems-analysis-and-control---coughanowr-leblanc" class="level2">
+<h2 class="anchored" data-anchor-id="problema-7.2-process-systems-analysis-and-control---coughanowr-leblanc">Problema 7.2 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/p7.2-coughanowr/headercontrol72.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">diagrama p7.2</figcaption><p></p>
+</figure>
+</div>
+<p>Dos tanques mostrados en la figura, operan en estado estacionario. At t=0 se agregan al primer tanque, 10 pie³ de agua de manera repentina. Usando apropiadamente las figuras y ecuaciones, determine la máxima desviación del nivel del líquido en ambos tanques del estado estacionario y el tiempo en el cuál ocurre.</p>
+<p><span class="math display">
+\begin{array}{l}
+A_1=A_2=10\space pie²\\
+R_1=0.1\space pie/(pie³/min)\\
+R_2=0.35\space pie/(pie³/min)\\
+\end{array}
+</span></p>
+<p>Escribiendo las ecuaciones de balance</p>
+<section id="obtención-de-la-ecuación-en-transferencia" class="level3">
+<h3 class="anchored" data-anchor-id="obtención-de-la-ecuación-en-transferencia">Obtención de la ecuación en transferencia</h3>
+<p>Pero <span class="math inline">q_1 = h_1/R_1</span> y <span class="math inline">dV_1 = A_1dh_1</span></p>
+<p><span class="math display">
+q- \frac{h_1}{R} = A\frac{dh_1}{dt} \space\space\space\space (1)
+</span></p>
+<p>Escribiendo el balance en estado estacionario</p>
+<p><span class="math display">
+q_s- \frac{h_{1s}}{R_1} = 0 \space\space\space\space (2)
+</span></p>
+<p>Restando (1) con (2) para obtener las variables desviación y recordando que <span class="math inline">dh=d(h-h_s)</span>, por ser <span class="math inline">h_s</span> constante.</p>
+<p><span class="math display">
+q-q_s-\frac{h_1-h_{1s}}{R_1}=A\frac{d(h_1-h_{1s})}{dt}
+</span></p>
+<p><span class="math display">
+Q - \frac{H_1}{R_1} = A\frac{dH_1}{dt}
+</span></p>
+<p>Aplicando la tranformada de Laplacey sabiendo que <span class="math inline">H_1(t=0)= h_1-h_{1s}=h_{1s}-h_{1s}=0</span></p>
+<p><span class="math display">
+Q(s) - \frac{H_1(s)}{R_1} = A_1\left[sH_1(s)-H_1(t=0)\right]\\
+</span></p>
+<p><span class="math display">
+Q(s) - \frac{H_1(s)}{R_1} = A_1sH_1(s)
+</span></p>
+<p>Reordenando obtenemos la ecuación de tranferencia del primer tanque</p>
+<p><span class="math display">
+\frac{H_1(s)}{Q(s)} = \frac{R_1}{A_1R_1s+1}\space\space\space\space\textbf{... (3)}
+</span></p>
+<p>Reemplazando datos <span class="math inline">R_1=0.1\text{   ;}A_1=10</span> obtenemos la ecuación de tranferencia del primer tanque.</p>
+<p><span class="math display">
+\mathbf{\frac{H_1(s)}{Q(s)} = \frac{0.1}{1s+1}} \space\space\space\space\textbf{... }\mathbf{(\alpha)}
+</span></p>
+<p>De similar manera podemos obtener la ecuación de transferencia para el segundo tanque</p>
+<p><span class="math display">
+\frac{H_2(s)}{Q_1(s)} = \frac{R_2}{A_2R_2s+1}\space\space\space\space\textbf{... (4)}
+</span></p>
+<p>Recuerde que tambien se cumple <span class="math display">
+Q_1(s)=\frac{H_1(s)}{R_1}
+</span></p>
+<p>Reemplazando en (4)</p>
+<p><span class="math display">
+\frac{H_2(s)\cdot R_1}{H_1(s)} = \frac{R_2}{A_2R_2s+1}\space\space\space\space\textbf{... (5)}
+</span></p>
+<p>Multipicando las ecuaciónes (3) con (5) y simplificando obtenemos la ecuación de transferencia del segundo tanque.</p>
+<p><span class="math display">
+\frac{H_2(s)}{Q(s)} = \frac{R_2}{(A_2R_2s+1)(A_1R_1s+1)}\space\space\space\space\textbf{... (6)}
+</span></p>
+<p>Reemplazando con los datos <span class="math inline">R_1=0.1\text{   ;}A_1=A_2=10\text{   ;}R_2=0.35</span></p>
+<p><span class="math display">
+\mathbf{\frac{H_2(s)}{Q(s)} = \frac{0.35}{(3.5s+1)(s+1)}} \space\space\space\space\textbf{... }\mathbf{(\beta)}
+</span></p>
+<p>Ahora describamos la perturbación</p>
+<p><span class="math display">
+Q(t)=
+\begin{cases}
+   0 \space &amp;\text{si } t&lt;0\\
+   10 \space\ pie³/min \space\space\space (\infty)&amp;\text{si } t=0 \space min\\
+   0 \space\ &amp;\text{si } t&gt;0 \\
+\end{cases}
+</span></p>
+<p>Entonces <span class="math display">
+Q(t) = 10 \delta (t)
+</span></p>
+<p>Aplicando la transformada</p>
+<p><span class="math display">
+Q(s) = 10
+</span></p>
+<p>Para el primer tanque reemplazanado en la ecuación <span class="math inline">(\alpha)</span></p>
+<p><span class="math display">
+H_1(s) = \frac{0.1Q(s)}{s+1}  = \frac{0.1\times 10}{s+1} =\frac{1}{s+1}
+</span></p>
+<p>Antitransformando</p>
+<p><span class="math display">
+H_1(t) = e^{-t}
+</span> Notamos que la función es decreciente el máximo valor que toma es al inicio. Por lo que el máximo valor de la desviación es cuando t=0. Puede confirmar esto reemplazando cualquier valor de t&gt;0, ó graficando la función.</p>
+<p><span class="math display">
+H_1(t=0) = e^{-0} = 1
+</span></p>
+<p>Entonces el la desviación máxima es <strong>1 pie</strong> en el nivel del líquido del primer tanque a <strong>t = 0 min</strong>.</p>
+<p>Para el segundo tanque reemplazando <span class="math inline">Q(s)=10</span> en la ecuación <span class="math inline">\beta</span></p>
+<p><span class="math display">
+H_2(s) = \frac{0.35\times Q(s)}{(3.5s+1)(s+1)} = \frac{3.5}{(3.5s+1)(s+1)}
+</span></p>
+<p>Expandiendo el termino del lado derecho en fracciones parciales (Puede obtener el mismo resultado si usa las tablas)</p>
+<p><span class="math display">
+\frac{3.5}{(3.5s+1)(s+1)} = \frac{A}{(3.5s+1)}+\frac{B}{(s+1)}
+</span></p>
+<p><span class="math display">
+3.5 = A(s+1)+B(3.5s+1)
+</span></p>
+<p>Recuerde que es una ecuación y cumple para cualquier valor de <span class="math inline">s</span>. Eligiendo el valor conveniente de <span class="math inline">s</span> podemos hallar las constantes.</p>
+<p>Cuando <span class="math inline">s=-1</span> entonces <span class="math inline">B = -0.35/2.5</span></p>
+<p>para <span class="math inline">s=-1/3.5</span> el valor <span class="math inline">A=0.35\times 3.5/2.5</span></p>
+<p>En nuestra ecuación original y reorganizando para la antitransformada</p>
+<p><span class="math display">
+H_2(s)=\frac{0.35}{2.5}\left(\frac{1}{s+1/3.5}-\frac{1}{s+1}\right)
+</span></p>
+<p>Aplicando la transformada inversa</p>
+<p><span class="math display">
+H_2(t)=\frac{0.35}{2.5}\left(e^{-t/3.5}-e^{-t}\right)
+</span></p>
+<p>Derivando e igualando a cero para hallar el máximo.</p>
+<p><span class="math display">
+\frac{dH_2(t)}{dt}=\frac{0.35}{2.5}\left(-\frac{e^{-t/3.5}}{3.5}-(-1)e^{-t}\right)=0
+</span></p>
+<p>Operando</p>
+<p><span class="math display">
+3.5e^{-t}=e^{-t/3.5}
+</span></p>
+<p>Despejando t</p>
+<p><span class="math display">
+t=\frac{3.5\times ln(3.5)}{2.5} = 1.7539\text{ min}
+</span></p>
+<p>Reemplazandoen H_2(t) <span class="math display">
+H_2(t=1.7539)=\frac{0.35}{2.5}\left(e^{-1.7539/3.5}-e^{-1.7539}\right) = 0.0606\text{ pie}
+</span></p>
+<p>Entonces la máxima desviación para el segundo tanque se da cuando <strong>t = 1.7539 min</strong> con una desviación del nivel del líquido de <strong>0.0606 pie</strong>.</p>
+<p><em>Nótese que no se nos pide hallar el nivel del liquido (h) cuando la desviación es máxima si no solamente la desviación máxima (H). Si se quisiera hallar el nivel del liquido utilice la ecuación <em><span class="math inline">H(t) = h(t)-h_s</span></em> y despeje <span class="math inline">h_s</span> de las ecuaciones del balance en estado estacionario.</em></p>
+<p>Es interesante analizar los estados de este sistema mediante gráficos, así que lo incluyo por si alguien desea verlo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/p7.2-coughanowr/p72r.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">respuesta del sistema p7.2</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<ul>
+<li>Coughanowr, D. R.; LeBlanc, S. E. (2009). <em>Process Systems Analysis and Control</em> (3rd edition). McGraw-Hill. ISBN 978-0-07-339789-4.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./p5.1-coughanowr.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

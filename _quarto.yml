@@ -1,0 +1,37 @@
+project:
+  type: book
+  output-dir: public
+
+book:
+  title: "Solucionaro de Control Automático de Procesos"
+  author: "Ever Vino"
+  page-navigation: true
+  
+  date: "9/1/2023"
+  chapters:
+    - index.qmd
+    - part: Sistemas físicos de primer orden
+      chapters:
+        - p5.1-babatunde.qmd
+        - p5.1-coughanowr.qmd
+    - part: Sistemas físicos de segundo orden 
+      chapters:
+        - p7.2-coughanowr.qmd 
+    
+
+bibliography: references.bib
+number-depth: 0
+format:
+  
+  html:
+  
+    theme: 
+    - cosmo
+    - custom.scss
+    
+    html-math-method: katex
+  pdf:
+    documentclass: scrreprt
+
+
+

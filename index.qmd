@@ -1,0 +1,8 @@
+---
+toc: false
+---
+# Un solucionario para Control Automático {.unnumbered}
+
+Este es un Solucionario de Control Automático
+
+
