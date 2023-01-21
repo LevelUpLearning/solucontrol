@@ -14,10 +14,20 @@ book:
       chapters:
         - p5.1-babatunde.qmd
         - p5.1-coughanowr.qmd
+        - p5.2-coughanowr.qmd
+        - p5.3-coughanowr.qmd
+        - p5.5-coughanowr.qmd
+        - p5.5-seborg.qmd
+        - p5.9-coughanowr.qmd
+        - p5.9-seborg.qmd
+        - p5.16-coughanowr.qmd
+        - p5.18-coughanowr.qmd
+        - p5.21-seborg.qmd
+
     - part: Sistemas físicos de segundo orden 
       chapters:
-        - p7.2-coughanowr.qmd 
-    
+        - p7.2-coughanowr.qmd
+        - p7.3-coughanowr.qmd 
 
 bibliography: references.bib
 number-depth: 0

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ever Vino">
-<meta name="dcterms.date" content="2022-10-06">
+<meta name="dcterms.date" content="2022-10-14">
 
-<title>Solucionaro de Control Automático de Procesos - 2&nbsp; Un sistema con un tanque, una bomba y una válvula</title>
+<title>Solucionaro de Control Automático de Procesos - 6&nbsp; Termocupla expuesta a un pulso rectangular de temperatura</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./p5.2-coughanowr.html" rel="next">
-<link href="./p5.1-babatunde.html" rel="prev">
+<link href="./p5.9-coughanowr.html" rel="next">
+<link href="./p5.5-coughanowr.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Termocupla expuesta a un pulso rectangular de temperatura</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p5.1-coughanowr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></a>
+  <a href="./p5.1-coughanowr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -151,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p5.5-seborg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Termocupla expuesta a un pulso rectangular de temperatura</span></a>
+  <a href="./p5.5-seborg.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Termocupla expuesta a un pulso rectangular de temperatura</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -210,11 +210,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" id="toc-problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" class="nav-link active" data-scroll-target="#problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc">Problema 5.1 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</a></li>
-  <li><a href="#resolución" id="toc-resolución" class="nav-link" data-scroll-target="#resolución">Resolución</a>
+  <li><a href="#problema-5.5-process-dynamics-and-control---seborg-edgar-m-d" id="toc-problema-5.5-process-dynamics-and-control---seborg-edgar-m-d" class="nav-link active" data-scroll-target="#problema-5.5-process-dynamics-and-control---seborg-edgar-m-d">Problema 5.5 (Process Dynamics and Control - Seborg, Edgar, M, D)</a>
   <ul class="collapse">
-  <li><a href="#resolviendo-para-h_s1textpie" id="toc-resolviendo-para-h_s1textpie" class="nav-link" data-scroll-target="#resolviendo-para-h_s1textpie">Resolviendo para <span class="math inline">h_s=1\text{pie}</span></a></li>
-  <li><a href="#resolviendo-para-h_s3text-pie" id="toc-resolviendo-para-h_s3text-pie" class="nav-link" data-scroll-target="#resolviendo-para-h_s3text-pie">Resolviendo para <span class="math inline">h_s=3\text{ pie}</span></a></li>
+  <li><a href="#hallando-la-función-transferencia" id="toc-hallando-la-función-transferencia" class="nav-link" data-scroll-target="#hallando-la-función-transferencia">Hallando la función transferencia</a></li>
+  <li><a href="#describiendo-la-perturbación" id="toc-describiendo-la-perturbación" class="nav-link" data-scroll-target="#describiendo-la-perturbación">Describiendo la perturbación</a></li>
+  <li><a href="#gráfica-de-la-función" id="toc-gráfica-de-la-función" class="nav-link" data-scroll-target="#gráfica-de-la-función">Gráfica de la función</a></li>
   </ul></li>
   <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
@@ -225,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Termocupla expuesta a un pulso rectangular de temperatura</span></h1>
 </div>
 
 
@@ -242,7 +242,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 6, 2022</p>
+      <p class="date">October 14, 2022</p>
     </div>
   </div>
   
@@ -252,87 +252,121 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" class="level2">
-<h2 class="anchored" data-anchor-id="problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc">Problema 5.1 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</h2>
+<section id="problema-5.5-process-dynamics-and-control---seborg-edgar-m-d" class="level2">
+<h2 class="anchored" data-anchor-id="problema-5.5-process-dynamics-and-control---seborg-edgar-m-d">Problema 5.5 (Process Dynamics and Control - Seborg, Edgar, M, D)</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/p5.1-coughanowr/headercontrol.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Grafico de prob 5.1</figcaption><p></p>
+<p><img src="./images/p5.5-seborg/headercontrol55s.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">diagrama p5.5</figcaption><p></p>
 </figure>
 </div>
-<p>Derive la ecuación transferencia H(s)/Q(s) para el nivel del líquido del sistema mostrado en la figura, cuando el tanque opera en estado estacionario a:</p>
-<ul>
-<li><ol type="a">
-<li><span class="math inline">\text{  }h_s = 1 \text{ pie}</span></li>
-</ol></li>
-<li><ol start="2" type="a">
-<li><span class="math inline">\text{  }h_s = 3 \text{ pie}</span></li>
-</ol></li>
-</ul>
-<p>La bomba extrae agua a caudal constante de <span class="math inline">10\text{ pie³/min}</span> y es independiente del la altura <span class="math inline">h</span>, El área seccional es <span class="math inline">A = 1.0\text{ pie²}</span> y la resistencia es <span class="math inline">R=0.5\text{ pie³/min}</span>.</p>
+<p>Una termocupla tiene las siguientes características cuando es sumergido en un tanque agitado:</p>
+<p><span class="math display">
+\begin{array}{rl}
+Masa\ termocupla\ &amp; =\ 1\ g\\
+Capacidad\ calorífica\ &amp; =\ 0.25\ cal/(cm^2\ °C)\\
+Coeficiente\ de\ transferencia\ de\ calor\  &amp; =\ 20\ cal/(cm^2\ h\ °C)\\
+Área\ de\ superficie\ de\ la\ termocupla\ &amp; =\ 3\ cm^2\\
+\end{array}
+</span></p>
+<p>Halle la función transferencia de la termocupla que relaciona la temperatura de la termocupla <span class="math inline">T</span> y la de la de los alrededores <span class="math inline">T_A</span>.</p>
+<p>Si la termocupla esta inicialmente fuera tanque, con una temperatura ambiente de 23 °C. ¿Cuál será la máxima temperatura alcanzada si es puesta en el tanque a temperatura de 80 °C, y se la saca después de 20s?</p>
+<p>Grafique las la variación de temperatura de la termocupla.</p>
+<section id="hallando-la-función-transferencia" class="level3">
+<h3 class="anchored" data-anchor-id="hallando-la-función-transferencia">Hallando la función transferencia</h3>
+<p>Escribiendo el balance de energía en estado transitorio y en estado estacionario.</p>
+<p><span class="math display">
+mC_p\frac{dT}{dt}=UA(T_A-T)
+</span></p>
+<p><span class="math display">
+0=UA(T_{As}-T_s)
+</span></p>
+<p>Restando ambas ecuaciones y pasando a variables desviación</p>
+<p><span class="math display">
+m C_p \frac{d(T-T_s)}{dt}=UA\big[(T_A-T_{As})-(T-T_s)\big]
+</span></p>
+<p><span class="math display">
+mC_p\frac{dT'}{dt}=UA(T'_A-T')
+</span></p>
+<p>Aplicando la transformada de Laplace, sabiendo que para el estado estacionario T’(t=0)=0</p>
+<p><span class="math display">
+mC_ps\space T(s)=UA(T'_A(s)-T'(s))
+</span></p>
+<p>Despejando la función tranferencia y haciendo <span class="math inline">\tau = (mC_p)/(UA)</span> en segundos</p>
+<p><span class="math display">
+\frac{T'(s)}{T'_A(s)}=\frac{1}{\tau s+1}
+</span></p>
+<p><span class="math display">
+\tau = \frac{1\ g\ \times 0.25\ \frac{cal}{g\ °C}}{20\frac{cal}{cm^2\ h\ °C}\times \frac{1\ h}{360\ s}3\ cm^2}
+</span> <span class="math display">
+\tau = 15
+</span></p>
+<p><span class="math display">
+\mathbf{\frac{T'(s)}{T'_A(s)}=\frac{1}{15 s+1}}\space\space\space\space\textbf{... (1)}
+</span></p>
 </section>
-<section id="resolución" class="level2">
-<h2 class="anchored" data-anchor-id="resolución">Resolución</h2>
-<section id="resolviendo-para-h_s1textpie" class="level3">
-<h3 class="anchored" data-anchor-id="resolviendo-para-h_s1textpie">Resolviendo para <span class="math inline">h_s=1\text{pie}</span></h3>
-<p>Cuando la altura <span class="math inline">h_s=1</span> podemos notar que no existe flujo posible por la válvula, por lo que no lo consideramos en la ecuación transferencia.</p>
-<p>Escribiendo las ecuaciones de balance</p>
+<section id="describiendo-la-perturbación" class="level3">
+<h3 class="anchored" data-anchor-id="describiendo-la-perturbación">Describiendo la perturbación</h3>
 <p><span class="math display">
-q - q_b = \frac{dV}{dt} = A\frac{dh}{dt} \space\space\space\space\space \textbf{(1)}
-</span></p>
-<p>Ecuacion en estado estacionario</p>
-<p><span class="math display">
-q_s - q_b = 0 \space\space\space\space\space \textbf{(2)}
-</span></p>
-<p>Restando (1) con (2) para obtener las variables desviación y recordando que <span class="math inline">dh=d(h-h_s)</span>, por ser <span class="math inline">h_s</span> constante.</p>
-<p><span class="math display">
-q-q_s=A\frac{d(h-h_s)}{dt}
+T'_A(t)= T_A(t)-T_{As}
+\begin{cases}
+   0 &amp;\text{si } t &lt; 0 \\
+   80-23\ °C &amp;\text{si } 0&lt; t &lt; 20\\
+   0 &amp;\text{si } t&gt;20\\
+\end{cases}
 </span></p>
 <p><span class="math display">
-Q = A\frac{dH}{dt}
+T'_A(t)=57u(t)-57u(t-20)
 </span></p>
-<p>Aplicando la tranformada de Laplace, sabiendo que <span class="math inline">H(t=0)= h-h_s=h_s-h_s=0</span> y <span class="math inline">A=1\text{ pie}</span>.</p>
+<p>Aplicando la antitransformada</p>
 <p><span class="math display">
-Q(s)  = A(sH(s)-H(t=0))\\
+T'_A(s)= \frac{57}{s}-57\frac{e^{-20s}}{s}
+</span></p>
+<p>Reemplanzando en la ecuación (1)</p>
+<p><span class="math display">
+T'(s)=\frac{57}{s(15 s+1)}-\frac{57e^{-20s}}{s(15 s+1)}
+</span></p>
+<p>Realizando la antitransformada (de tablas). Recuerde que <span class="math inline">e^{-as}</span> crea un desfase en la antitransformada igual a <span class="math inline">t= t-a</span></p>
+<p><span class="math display">
+T´(t)=57(1-e^{-t/15})u(t)-57(1-e^{-t/15})u(t)|_{t=t-20}
+</span></p>
+<p><span class="math display">
+T´(t)=57(1-e^{-t/15})u(t)-57(1-e^{-(t-20)/15})u(t-20)
+</span></p>
+<p><span class="math display">
+T(t)=T'(t)+T_s
 </span> <span class="math display">
-\mathbf{\frac{H(s)}{Q(s)}  = \frac{1}{s}}
+T(t)=57(1-e^{-t/15})u(t)-57(1-e^{-(t-20)/15})u(t-20)+23
+</span> Expresando esta función de manera más entendible</p>
+<p><span class="math display">
+T(t)=
+\begin{cases}
+   57(1-e^{-t/15})+23 &amp;\text{si  } 0&lt;t&lt; 20 \\
+   57(-e^{-t/15}+e^{-(t-20)/15})+23 &amp;\text{si  } t &gt; 20\\
+\end{cases}
+</span></p>
+<p>Las funciones son monotonicas en ambos rangos, por lo que para el máximo bastará con analizar el punto anguloso, la temperatura máxima se da un instante antes de sacar la termocupla del tanque a 80 °C, es decir a los 20 s.</p>
+<p><span class="math display">
+T(t=20)=57(1-e^{-20/15})+23
+</span></p>
+<p><span class="math display">
+\mathbf{T_{max}=64.974\ °C}
 </span></p>
 </section>
-<section id="resolviendo-para-h_s3text-pie" class="level3">
-<h3 class="anchored" data-anchor-id="resolviendo-para-h_s3text-pie">Resolviendo para <span class="math inline">h_s=3\text{ pie}</span></h3>
-<p>Cuando <span class="math inline">h_s=3</span> el sistema se encuentra operando sobre el nivel de la válvula, por lo que si existe un flujo <span class="math inline">q_0</span> que pasa por este.</p>
-<p>Aplicando un balance del sistema y sabiendo que <span class="math inline">q_0 = h-h_v/R</span>, donde <span class="math inline">h_v</span> es la altura de la válvula</p>
-<p><span class="math display">
-q - q_0- q_b = A\frac{dh}{dt}
-</span> <span class="math display">
-q - \frac{h-h_v}{R}- q_b = A\frac{dh}{dt} \space\space\space\space\space \textbf{(3)}
-</span></p>
-<p>Balance en estado estacionario</p>
-<p><span class="math display">
-q_s - \frac{h_s-h_v}{R}- q_b = 0 \space\space\space\space\space \textbf{(4)}
-</span></p>
-<p>Restando (3) con (4) para obtener las variables desviación y recordando que <span class="math inline">dh=d(h-h_s)</span>, por ser <span class="math inline">h_s</span> constante.</p>
-<p><span class="math display">
-q - q_s- \frac{h-h_s}{R} = A\frac{d(h-h_s)}{dt}
-</span></p>
-<p><span class="math display">
-Q -\frac{H}{R} = A\frac{dH}{dt}
-</span></p>
-<p>Aplicando la tranformada de Laplace, sabiendo que <span class="math inline">H(t=0)= h-h_s=h_s-h_s=0</span>, <span class="math inline">A=1\text{ pie}</span> y <span class="math inline">R=0.5\text{ pie/(pie³/min)}</span>.</p>
-<p><span class="math display">
-Q(s) -\frac{H(s)}{R} = A(sH(s)-H(t=0))\\
-</span> <span class="math display">
-\frac{H(s)}{Q(s)}  = \frac{R}{ARs+1}
-</span></p>
-<p><span class="math display">
-\mathbf{\frac{H(s)}{Q(s)}  = \frac{0.5}{0.5s+1}}
-</span></p>
+<section id="gráfica-de-la-función" class="level3">
+<h3 class="anchored" data-anchor-id="gráfica-de-la-función">Gráfica de la función</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/p5.5-seborg/p55sr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Respuesta temperatura</figcaption><p></p>
+</figure>
+</div>
 </section>
 </section>
 <section id="referencias" class="level2">
 <h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
 <ul>
-<li>Coughanowr, D. R.; LeBlanc, S. E. (2009). <em>Process Systems Analysis and Control</em> (3rd edition). McGraw-Hill. ISBN 978-0-07-339789-4.</li>
+<li>Seborg, D. E.; Edgar, T. F.; Mellichamp, D. A.; Doyle, F. J. (2016). <em>Process Dynamics and Control</em> (4th edition). John Wiley &amp; Sons, Inc.&nbsp;ISBN 978-1-119-28591-5.</li>
 </ul>
 
 
@@ -474,13 +508,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./p5.1-babatunde.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Un calentador que deja de funcionar</span></span>
+      <a href="./p5.5-coughanowr.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Respuesta de una reactor químico a un cambio de concentración de entrada</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./p5.2-coughanowr.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Un tanque con una bomba y una válvula de resistencia variable</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./p5.9-coughanowr.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Respuesta de un tanque a una perturbación tipo impulso unitario</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

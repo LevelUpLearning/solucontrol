@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ever Vino">
-<meta name="dcterms.date" content="2022-10-06">
+<meta name="dcterms.date" content="2022-10-14">
 
-<title>Solucionaro de Control Automático de Procesos - 2&nbsp; Un sistema con un tanque, una bomba y una válvula</title>
+<title>Solucionaro de Control Automático de Procesos - 8&nbsp; Dos tanques uno con una válvula y el otro con una bomba</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./p5.2-coughanowr.html" rel="next">
-<link href="./p5.1-babatunde.html" rel="prev">
+<link href="./p5.16-coughanowr.html" rel="next">
+<link href="./p5.9-coughanowr.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dos tanques uno con una válvula y el otro con una bomba</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p5.1-coughanowr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></a>
+  <a href="./p5.1-coughanowr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -161,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p5.9-seborg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dos tanques uno con una válvula y el otro con una bomba</span></a>
+  <a href="./p5.9-seborg.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dos tanques uno con una válvula y el otro con una bomba</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -210,11 +210,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" id="toc-problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" class="nav-link active" data-scroll-target="#problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc">Problema 5.1 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</a></li>
-  <li><a href="#resolución" id="toc-resolución" class="nav-link" data-scroll-target="#resolución">Resolución</a>
+  <li><a href="#problema-5.9-process-dynamics-and-control---seborg-edgar-m-d" id="toc-problema-5.9-process-dynamics-and-control---seborg-edgar-m-d" class="nav-link active" data-scroll-target="#problema-5.9-process-dynamics-and-control---seborg-edgar-m-d">Problema 5.9 (Process Dynamics and Control - Seborg, Edgar, M, D)</a>
   <ul class="collapse">
-  <li><a href="#resolviendo-para-h_s1textpie" id="toc-resolviendo-para-h_s1textpie" class="nav-link" data-scroll-target="#resolviendo-para-h_s1textpie">Resolviendo para <span class="math inline">h_s=1\text{pie}</span></a></li>
-  <li><a href="#resolviendo-para-h_s3text-pie" id="toc-resolviendo-para-h_s3text-pie" class="nav-link" data-scroll-target="#resolviendo-para-h_s3text-pie">Resolviendo para <span class="math inline">h_s=3\text{ pie}</span></a></li>
+  <li><a href="#datos" id="toc-datos" class="nav-link" data-scroll-target="#datos">Datos</a></li>
+  <li><a href="#derivación-de-la-ecuación-tranferencia-para-el-primer-tanque" id="toc-derivación-de-la-ecuación-tranferencia-para-el-primer-tanque" class="nav-link" data-scroll-target="#derivación-de-la-ecuación-tranferencia-para-el-primer-tanque">Derivación de la ecuación tranferencia para el primer tanque</a></li>
+  <li><a href="#obteniendo-la-función-transferencia-para-el-segundo-sistema" id="toc-obteniendo-la-función-transferencia-para-el-segundo-sistema" class="nav-link" data-scroll-target="#obteniendo-la-función-transferencia-para-el-segundo-sistema">Obteniendo la función transferencia para el segundo sistema</a></li>
+  <li><a href="#respuesta-de-los-sistema-a-la-perturbación" id="toc-respuesta-de-los-sistema-a-la-perturbación" class="nav-link" data-scroll-target="#respuesta-de-los-sistema-a-la-perturbación">Respuesta de los sistema a la perturbación</a></li>
   </ul></li>
   <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
@@ -225,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dos tanques uno con una válvula y el otro con una bomba</span></h1>
 </div>
 
 
@@ -242,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 6, 2022</p>
+      <p class="date">October 14, 2022</p>
     </div>
   </div>
   
@@ -252,87 +253,197 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" class="level2">
-<h2 class="anchored" data-anchor-id="problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc">Problema 5.1 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</h2>
+<section id="problema-5.9-process-dynamics-and-control---seborg-edgar-m-d" class="level2">
+<h2 class="anchored" data-anchor-id="problema-5.9-process-dynamics-and-control---seborg-edgar-m-d">Problema 5.9 (Process Dynamics and Control - Seborg, Edgar, M, D)</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/p5.1-coughanowr/headercontrol.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Grafico de prob 5.1</figcaption><p></p>
+<p><img src="./images/p5.9-seborg/headercontrol59s.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">diagrama p5.9</figcaption><p></p>
 </figure>
 </div>
-<p>Derive la ecuación transferencia H(s)/Q(s) para el nivel del líquido del sistema mostrado en la figura, cuando el tanque opera en estado estacionario a:</p>
-<ul>
-<li><ol type="a">
-<li><span class="math inline">\text{  }h_s = 1 \text{ pie}</span></li>
-</ol></li>
-<li><ol start="2" type="a">
-<li><span class="math inline">\text{  }h_s = 3 \text{ pie}</span></li>
-</ol></li>
-</ul>
-<p>La bomba extrae agua a caudal constante de <span class="math inline">10\text{ pie³/min}</span> y es independiente del la altura <span class="math inline">h</span>, El área seccional es <span class="math inline">A = 1.0\text{ pie²}</span> y la resistencia es <span class="math inline">R=0.5\text{ pie³/min}</span>.</p>
+<p>Dos tanques mostrados en la figura, cada uno tiene un diámetro de 4 pie, Para el primer sistemas la válvula tiene una resistencia linear con la ecuación <span class="math inline">q = 8.33\  h</span> con q en (gal/min) y h en (pie). Para el segundo sistema, la variación en el nivel del líquido no afecta el caudal de salida <span class="math inline">q</span> . Suponga que cada sistema esta inicialmente en estado estacionario con <span class="math inline">h_s = 6\ pie</span> y <span class="math inline">q_s = 50\ gal/min</span>. A <span class="math inline">t=0</span> el caudal de entrada se incrementa de 50 a 70 gal/min.</p>
+<p>Determine para cada sistema</p>
+<ol type="a">
+<li><p>La función transferencia <span class="math inline">H(s)/Q(s)</span></p></li>
+<li><p>La función h(t)</p></li>
+<li><p>Los nuevos estados estacionario</p></li>
+<li><p>Si cada tanque tiene 8 pie de altura, ¿cuál tanque rebalsa primero y cuando?</p></li>
+<li><p>Verifique los resultado en d) graficando lo resultados</p></li>
+</ol>
+<section id="datos" class="level3">
+<h3 class="anchored" data-anchor-id="datos">Datos</h3>
+<p><span class="math display">
+\begin{array}{rl}
+d = &amp;4 pie\\
+h_s= &amp;6 pie\\
+q_{is}=&amp;50\ gal/min\\
+q_i=&amp;70\ gal/min\\
+h_s=&amp;8\ pie\\
+q=&amp;8.33\ h\ gal/min
+\end{array}
+</span></p>
+<p>Estandarizamos los datos anteriores (es decir convertimos a unidades compatibles) y obtenemos el área de los tanques. (7.48 gal = 1 pie³) <span class="math display">
+\begin{array}{l}
+A\ = \frac{\pi d^2}{4}\ =\ 12.5665\ pie^2\\
+\\
+q_{is}\ =50/7.48\ =\ 6.6845\ pie^3/min\\
+\\
+q_i\ =\ 9.3583\ pie^3/min\\
+\\
+q\ =\ 8.33\frac{gal}{min\cdot pie}\ h \frac{1\ pie^3}{7.48\ gal} = 1.1136\ h\\
+\end{array}
+</span></p>
+<p>Para simplificar las operaciones hagamos <span class="math inline">q=kh</span> con <span class="math inline">k=1.1136</span></p>
 </section>
-<section id="resolución" class="level2">
-<h2 class="anchored" data-anchor-id="resolución">Resolución</h2>
-<section id="resolviendo-para-h_s1textpie" class="level3">
-<h3 class="anchored" data-anchor-id="resolviendo-para-h_s1textpie">Resolviendo para <span class="math inline">h_s=1\text{pie}</span></h3>
-<p>Cuando la altura <span class="math inline">h_s=1</span> podemos notar que no existe flujo posible por la válvula, por lo que no lo consideramos en la ecuación transferencia.</p>
-<p>Escribiendo las ecuaciones de balance</p>
+<section id="derivación-de-la-ecuación-tranferencia-para-el-primer-tanque" class="level3">
+<h3 class="anchored" data-anchor-id="derivación-de-la-ecuación-tranferencia-para-el-primer-tanque">Derivación de la ecuación tranferencia para el primer tanque</h3>
+<p>Escribiendo las ecuaciones de balance de materia (asumiendo densidad constante) en estado transitorio y en estado estacionario:</p>
 <p><span class="math display">
-q - q_b = \frac{dV}{dt} = A\frac{dh}{dt} \space\space\space\space\space \textbf{(1)}
-</span></p>
-<p>Ecuacion en estado estacionario</p>
-<p><span class="math display">
-q_s - q_b = 0 \space\space\space\space\space \textbf{(2)}
-</span></p>
-<p>Restando (1) con (2) para obtener las variables desviación y recordando que <span class="math inline">dh=d(h-h_s)</span>, por ser <span class="math inline">h_s</span> constante.</p>
-<p><span class="math display">
-q-q_s=A\frac{d(h-h_s)}{dt}
+A\frac{dh}{dt}= q_i-kh
 </span></p>
 <p><span class="math display">
-Q = A\frac{dH}{dt}
+0=q_{is}-kh_s
 </span></p>
-<p>Aplicando la tranformada de Laplace, sabiendo que <span class="math inline">H(t=0)= h-h_s=h_s-h_s=0</span> y <span class="math inline">A=1\text{ pie}</span>.</p>
+<p>Restando ambas ecuaciones y pasando a variables desviación</p>
 <p><span class="math display">
-Q(s)  = A(sH(s)-H(t=0))\\
-</span> <span class="math display">
-\mathbf{\frac{H(s)}{Q(s)}  = \frac{1}{s}}
+A\frac{dH}{dt}=Q_i-kH
+</span></p>
+<p>Aplicando la transformada de Laplace</p>
+<p><span class="math display">
+AsH(s)=Q_i(s)-kH(s)
+</span></p>
+<p><span class="math display">
+\frac{H(s)}{Q(s)}=\frac{1/K}{As/K+1}
+</span></p>
+<p>Reemplazando valores conocidos</p>
+<p><span class="math display">
+\mathbf{\frac{H(s)}{Q(s)}=\frac{0.8980}{12.2845s+1}}\space\space\space\space\textbf{... (1)}
 </span></p>
 </section>
-<section id="resolviendo-para-h_s3text-pie" class="level3">
-<h3 class="anchored" data-anchor-id="resolviendo-para-h_s3text-pie">Resolviendo para <span class="math inline">h_s=3\text{ pie}</span></h3>
-<p>Cuando <span class="math inline">h_s=3</span> el sistema se encuentra operando sobre el nivel de la válvula, por lo que si existe un flujo <span class="math inline">q_0</span> que pasa por este.</p>
-<p>Aplicando un balance del sistema y sabiendo que <span class="math inline">q_0 = h-h_v/R</span>, donde <span class="math inline">h_v</span> es la altura de la válvula</p>
+<section id="obteniendo-la-función-transferencia-para-el-segundo-sistema" class="level3">
+<h3 class="anchored" data-anchor-id="obteniendo-la-función-transferencia-para-el-segundo-sistema">Obteniendo la función transferencia para el segundo sistema</h3>
+<p>Planteando los balances en estado transitorio y estacionario con <span class="math inline">q_b</span> para el caudal de la bomba</p>
 <p><span class="math display">
-q - q_0- q_b = A\frac{dh}{dt}
+A\frac{dh}{dt}=q_i-q_b
+</span></p>
+<p><span class="math display">
+0=q_{is}-q_b
+</span></p>
+<p>Restando ambas ecuaciones y conviertiendo a variables desviación</p>
+<p><span class="math display">
+A\frac{d(h-h_s)}{dt}=q_i-q_{is}
 </span> <span class="math display">
-q - \frac{h-h_v}{R}- q_b = A\frac{dh}{dt} \space\space\space\space\space \textbf{(3)}
+A\frac{dH}{dt}=Q_i
 </span></p>
-<p>Balance en estado estacionario</p>
+<p>Aplicando la transformada de Laplace y despejando la función tranferencia</p>
 <p><span class="math display">
-q_s - \frac{h_s-h_v}{R}- q_b = 0 \space\space\space\space\space \textbf{(4)}
-</span></p>
-<p>Restando (3) con (4) para obtener las variables desviación y recordando que <span class="math inline">dh=d(h-h_s)</span>, por ser <span class="math inline">h_s</span> constante.</p>
-<p><span class="math display">
-q - q_s- \frac{h-h_s}{R} = A\frac{d(h-h_s)}{dt}
+AsH(s)=Q_i(s)
 </span></p>
 <p><span class="math display">
-Q -\frac{H}{R} = A\frac{dH}{dt}
+\frac{H(s)}{Q_i(s)}=\frac{1}{As}
 </span></p>
-<p>Aplicando la tranformada de Laplace, sabiendo que <span class="math inline">H(t=0)= h-h_s=h_s-h_s=0</span>, <span class="math inline">A=1\text{ pie}</span> y <span class="math inline">R=0.5\text{ pie/(pie³/min)}</span>.</p>
+<p>Reemplazando datos conocidos</p>
 <p><span class="math display">
-Q(s) -\frac{H(s)}{R} = A(sH(s)-H(t=0))\\
-</span> <span class="math display">
-\frac{H(s)}{Q(s)}  = \frac{R}{ARs+1}
+\mathbf{\frac{H(s)}{Q_i(s)}=\frac{1}{12.5664s}} \space\space\space\space\textbf{... (2)}
+</span></p>
+</section>
+<section id="respuesta-de-los-sistema-a-la-perturbación" class="level3">
+<h3 class="anchored" data-anchor-id="respuesta-de-los-sistema-a-la-perturbación">Respuesta de los sistema a la perturbación</h3>
+<p>Decripción de la perturbación</p>
+<p><span class="math display">
+Q(t)= q(t)-q_s
+\begin{cases}
+   q_s-q_s&amp;\text{si } t &lt; 0 \\
+   q_i-q_s &amp;\text{si } t &gt; 0\\
+\end{cases}
 </span></p>
 <p><span class="math display">
-\mathbf{\frac{H(s)}{Q(s)}  = \frac{0.5}{0.5s+1}}
+Q(t)= q(t)-6.6845
+\begin{cases}
+   0&amp;\text{si } t &lt; 0 \\
+   9.3583-6.6845=2.6738 &amp;\text{si } t &gt; 0\\
+\end{cases}
 </span></p>
+<p><span class="math display">
+\begin{array}{lcr}
+Q(t)=2.6738u(t)&amp;\rightarrow &amp; Q(s)=\frac{2.6738}{s}\\
+\end{array}
+</span></p>
+<p><span class="math display">
+\mathbf{Q(s)=\frac{2.6738}{s}}
+</span></p>
+<p>Reemplazando en la ecuación (1) <span class="math inline">Q(s)=\frac{2.6738}{s}</span></p>
+<p><span class="math display">
+H(s)=\frac{2.6738\times 0.8980}{s(12.2845s+1)}
+</span></p>
+<p>Separando en fracciones parciales y aplicando la antitransformada (Puede reemplazar de tablas directamente)</p>
+<p><span class="math display">
+H(s)=2.4011\left(\frac{1}{s}-\frac{1}{s+1/12.2845}\right)
+</span></p>
+<p><span class="math display">
+H(t)=2.4011(1-e^{-t/12.2845})
+</span></p>
+<p>Recordando que <span class="math inline">H(t)=h(t)-h_s</span> con <span class="math inline">h_s=6\ pie</span></p>
+<p><span class="math display">
+h(t)=2.4011(1-e^{-t/12.2845})+6
+</span></p>
+<p>Calculanado para que tiempo se llegará a una altura de h=8</p>
+<p><span class="math display">
+8=2.4011(1-e^{-t/12.2845})+6
+</span></p>
+<p><span class="math display">
+t=-12.2845ln\left(1-\frac{2}{2.4011}\right)
+</span></p>
+<p><span class="math display">
+\mathbf{t_I=21.98\ min}
+</span></p>
+<p>Calculando el nuevo estado estacionario para el primer sistema</p>
+<p><span class="math display">
+h(t\to\infty)=\lim_{t\to\infty}2.4011(1-e^{-t/12.2845})+6
+</span></p>
+<p><span class="math display">
+\mathbf{h_{sI}= 8.4011\ pie}
+</span></p>
+<p>Para el sistema 2 reemplazando (2) <span class="math inline">Q(s)=\frac{2.6738}{s}</span></p>
+<p><span class="math display">
+H(s)=\frac{2.6738}{s(12.5664s)}
+</span></p>
+<p>Realizando la antitranformada y despejando para <span class="math inline">h(t)</span></p>
+<p><span class="math display">
+H(t)=0.2128\cdot t
+</span></p>
+<p><span class="math display">
+h(t)=0.2128t+6
+</span></p>
+<p>El tiempo para el cual <span class="math inline">h = 8</span></p>
+<p><span class="math display">
+8=0.2128t+6
+</span></p>
+<p><span class="math display">
+\mathbf{t_{II}=9.40\ min}
+</span></p>
+<p>Calculando el nuevo estado estacionario para el sistema II</p>
+<p><span class="math display">
+h(t\to\infty)=\lim_{t\to\inf}0.2128t+6
+</span></p>
+<p><span class="math display">
+\mathbf{h_{sII}=\infty}
+</span></p>
+<p>Es decir el sistema 2 no tiene un nuevo estado estacionario y tiende al infinito.</p>
+<p>Siendo que <span class="math inline">t_{II}&lt;t_I</span> determinamos que el <strong>sistema II rebalsa primero</strong></p>
+<p>Graficando ambos sistemas</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/p5.9-seborg/p59sr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Altura de líquidos de ambos sistemas</figcaption><p></p>
+</figure>
+</div>
 </section>
 </section>
 <section id="referencias" class="level2">
 <h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
 <ul>
-<li>Coughanowr, D. R.; LeBlanc, S. E. (2009). <em>Process Systems Analysis and Control</em> (3rd edition). McGraw-Hill. ISBN 978-0-07-339789-4.</li>
+<li>Seborg, D. E.; Edgar, T. F.; Mellichamp, D. A.; Doyle, F. J. (2016). <em>Process Dynamics and Control</em> (4th edition). John Wiley &amp; Sons, Inc.&nbsp;ISBN 978-1-119-28591-5.</li>
 </ul>
 
 
@@ -474,13 +585,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./p5.1-babatunde.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Un calentador que deja de funcionar</span></span>
+      <a href="./p5.9-coughanowr.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Respuesta de un tanque a una perturbación tipo impulso unitario</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./p5.2-coughanowr.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Un tanque con una bomba y una válvula de resistencia variable</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./p5.16-coughanowr.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reactor químico con una velocidad de reacción cuadrática</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

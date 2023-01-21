@@ -9,7 +9,7 @@
 <meta name="author" content="Ever Vino">
 <meta name="dcterms.date" content="2022-10-06">
 
-<title>Solucionaro de Control Automático de Procesos - 2&nbsp; Un sistema con un tanque, una bomba y una válvula</title>
+<title>Solucionaro de Control Automático de Procesos - 9&nbsp; Reactor químico con una velocidad de reacción cuadrática</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./p5.2-coughanowr.html" rel="next">
-<link href="./p5.1-babatunde.html" rel="prev">
+<link href="./p5.18-coughanowr.html" rel="next">
+<link href="./p5.9-seborg.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reactor químico con una velocidad de reacción cuadrática</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p5.1-coughanowr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></a>
+  <a href="./p5.1-coughanowr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -166,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p5.16-coughanowr.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reactor químico con una velocidad de reacción cuadrática</span></a>
+  <a href="./p5.16-coughanowr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reactor químico con una velocidad de reacción cuadrática</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -210,11 +210,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" id="toc-problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" class="nav-link active" data-scroll-target="#problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc">Problema 5.1 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</a></li>
-  <li><a href="#resolución" id="toc-resolución" class="nav-link" data-scroll-target="#resolución">Resolución</a>
+  <li><a href="#problema-5.16-process-systems-analysis-and-control---coughanowr-leblanc" id="toc-problema-5.16-process-systems-analysis-and-control---coughanowr-leblanc" class="nav-link active" data-scroll-target="#problema-5.16-process-systems-analysis-and-control---coughanowr-leblanc">Problema 5.16 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</a>
   <ul class="collapse">
-  <li><a href="#resolviendo-para-h_s1textpie" id="toc-resolviendo-para-h_s1textpie" class="nav-link" data-scroll-target="#resolviendo-para-h_s1textpie">Resolviendo para <span class="math inline">h_s=1\text{pie}</span></a></li>
-  <li><a href="#resolviendo-para-h_s3text-pie" id="toc-resolviendo-para-h_s3text-pie" class="nav-link" data-scroll-target="#resolviendo-para-h_s3text-pie">Resolviendo para <span class="math inline">h_s=3\text{ pie}</span></a></li>
+  <li><a href="#resolviendo" id="toc-resolviendo" class="nav-link" data-scroll-target="#resolviendo">Resolviendo</a></li>
   </ul></li>
   <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
   </ul>
@@ -225,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Un sistema con un tanque, una bomba y una válvula</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Reactor químico con una velocidad de reacción cuadrática</span></h1>
 </div>
 
 
@@ -252,80 +250,150 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc" class="level2">
-<h2 class="anchored" data-anchor-id="problema-5.1-process-systems-analysis-and-control---coughanowr-leblanc">Problema 5.1 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</h2>
+<section id="problema-5.16-process-systems-analysis-and-control---coughanowr-leblanc" class="level2">
+<h2 class="anchored" data-anchor-id="problema-5.16-process-systems-analysis-and-control---coughanowr-leblanc">Problema 5.16 (Process Systems Analysis and Control - Coughanowr, LeBlanc)</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/p5.1-coughanowr/headercontrol.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Grafico de prob 5.1</figcaption><p></p>
+<p><img src="./images/p5.16-coughanowr/headercontrol516.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">gráfica problema 5.16</figcaption><p></p>
 </figure>
 </div>
-<p>Derive la ecuación transferencia H(s)/Q(s) para el nivel del líquido del sistema mostrado en la figura, cuando el tanque opera en estado estacionario a:</p>
-<ul>
-<li><ol type="a">
-<li><span class="math inline">\text{  }h_s = 1 \text{ pie}</span></li>
-</ol></li>
-<li><ol start="2" type="a">
-<li><span class="math inline">\text{  }h_s = 3 \text{ pie}</span></li>
-</ol></li>
-</ul>
-<p>La bomba extrae agua a caudal constante de <span class="math inline">10\text{ pie³/min}</span> y es independiente del la altura <span class="math inline">h</span>, El área seccional es <span class="math inline">A = 1.0\text{ pie²}</span> y la resistencia es <span class="math inline">R=0.5\text{ pie³/min}</span>.</p>
-</section>
-<section id="resolución" class="level2">
-<h2 class="anchored" data-anchor-id="resolución">Resolución</h2>
-<section id="resolviendo-para-h_s1textpie" class="level3">
-<h3 class="anchored" data-anchor-id="resolviendo-para-h_s1textpie">Resolviendo para <span class="math inline">h_s=1\text{pie}</span></h3>
-<p>Cuando la altura <span class="math inline">h_s=1</span> podemos notar que no existe flujo posible por la válvula, por lo que no lo consideramos en la ecuación transferencia.</p>
-<p>Escribiendo las ecuaciones de balance</p>
+<p>Para el reactor de mezcla completa mostrada en la figura, determine la función de transferencia que relaciona la concentración de salida con la concentración de la alimentación. Si cambiamos la concentración de entrada de 1 a 2 mol/L, ¿Cuál es la nueva concentración de salida? y ¿Cuál es la concentración en el nuevo estado estacionario?</p>
+<p>Nuestros datos</p>
 <p><span class="math display">
-q - q_b = \frac{dV}{dt} = A\frac{dh}{dt} \space\space\space\space\space \textbf{(1)}
+k = \frac{2\cdot L}{mol\cdot min}
 </span></p>
-<p>Ecuacion en estado estacionario</p>
+<p>Reacción</p>
 <p><span class="math display">
-q_s - q_b = 0 \space\space\space\space\space \textbf{(2)}
-</span></p>
-<p>Restando (1) con (2) para obtener las variables desviación y recordando que <span class="math inline">dh=d(h-h_s)</span>, por ser <span class="math inline">h_s</span> constante.</p>
-<p><span class="math display">
-q-q_s=A\frac{d(h-h_s)}{dt}
+2A\Rightarrow B\\
 </span></p>
 <p><span class="math display">
-Q = A\frac{dH}{dt}
+-r_A=kC_A^2
 </span></p>
-<p>Aplicando la tranformada de Laplace, sabiendo que <span class="math inline">H(t=0)= h-h_s=h_s-h_s=0</span> y <span class="math inline">A=1\text{ pie}</span>.</p>
+<section id="resolviendo" class="level3">
+<h3 class="anchored" data-anchor-id="resolviendo">Resolviendo</h3>
+<p>Linealicemos el término cuadrático antes. Usando la serie de Taylor truncada a primer orden</p>
 <p><span class="math display">
-Q(s)  = A(sH(s)-H(t=0))\\
+f(x)=f(x_s)+\frac{df}{dx}\bigg |_{x=x_s} (x-x_s)
+</span></p>
+<p>Siendo nuestra función a linealizar <span class="math inline">f(C_{A})=C_A^2</span></p>
+<p><span class="math display">
+C_A^2=C_{As}^2+2\cdot C_{As}(C_A-C_{Aas})
+</span></p>
+<p><span class="math display">
+C_A^2-C_{As}^2=2\cdot C_{As}(C_A-C_{Aas})\space\space\space\space\space\textbf{... (1)}
+</span></p>
+<p>Escribiendo nuestro balance de materia, sabiendo que <span class="math inline">n_o = C_0V</span></p>
+<p><span class="math display">
+C_{A0}F-C_AF-kC_A^2V=\frac{dn_o}{dt} = \frac{d(C_AV)}{dt}
+</span></p>
+<p><span class="math display">
+C_{A0}F-C_AF-kC_A^2V=V \frac{d(C_A)}{dt} \space\space\space\space\space\textbf{... (2)}
+</span></p>
+<p>Realizando el balance en estado estacionario</p>
+<p><span class="math display">
+C_{A0s}F-C_{As}F-kC_{As}^2V=0 \space\space\space\space\space\textbf{... (3)}
+</span></p>
+<p>Restado (3) de (2). Recuerde que <span class="math inline">d(C_A)=d(C_A-C_{As})</span></p>
+<p><span class="math display">
+(C_{A0}-C_{A0s})F-(C_A-C_{As})F-(C_A^2-C_{As}^2)kV=V \frac{d(C_A-C_{As})}{dt}
+</span></p>
+<p>Transformando a variables desviación y reemplazando la ecuación (1)</p>
+<p><span class="math display">
+C'_{A0}F-C'_AF-\big[2C_{As}(C_A-C_{As})\big]kV=V \frac{d(C'_A)}{dt}
+</span></p>
+<p><span class="math display">
+C'_{A0}F-C'_AF-2C_{As}(C'_A)kV=V \frac{d(C'_A)}{dt}
+</span></p>
+<p>Aplicando la transformada de Laplace y despejando y sabiendo que <span class="math inline">C'_A(t=0) = 0</span></p>
+<p><span class="math display">
+C'_{A0}(s)F-C'_A(s)F-2C_{As}C'_A(s)kV=V (sC'_A(s)-C'_A(t=0))
+</span></p>
+<p><span class="math display">
+FC'_{A0}(s)-FC'_A(s)-2C_{As}kVC'_A(s)=V sC'_A(s)\space\space\space\space\space\textbf{... (4)}
+</span></p>
+<p>Para simplificar el manejo de la ecuación (4) necesitamos reemplazar datos, pero nos falta conocer un dato <span class="math inline">C_{As}</span>, para hallar utilizamos la ecuación (3), conociendo que: <span class="math inline">k = 2;\space\space</span> <span class="math inline">C_{A0s} = 1;\space\space</span> <span class="math inline">V=50\space\space</span> y <span class="math inline">\space F= 5</span></p>
+<p><span class="math display">
+5\times 1-5\times C_{As}-2\times 50\times C_{As}^2=0
+</span></p>
+<p><span class="math display">
+1-C_{As}-20\times C_{As}^2=0
+</span> Usando la formula cuadrática para resolver <span class="math inline">C_{As}</span> y sólo tomando en cuenta el valor positivo</p>
+<p><span class="math display">
+C_{As}=\frac{-1±\sqrt{1+4\times 20}}{2\times 20}
 </span> <span class="math display">
-\mathbf{\frac{H(s)}{Q(s)}  = \frac{1}{s}}
-</span></p>
-</section>
-<section id="resolviendo-para-h_s3text-pie" class="level3">
-<h3 class="anchored" data-anchor-id="resolviendo-para-h_s3text-pie">Resolviendo para <span class="math inline">h_s=3\text{ pie}</span></h3>
-<p>Cuando <span class="math inline">h_s=3</span> el sistema se encuentra operando sobre el nivel de la válvula, por lo que si existe un flujo <span class="math inline">q_0</span> que pasa por este.</p>
-<p>Aplicando un balance del sistema y sabiendo que <span class="math inline">q_0 = h-h_v/R</span>, donde <span class="math inline">h_v</span> es la altura de la válvula</p>
-<p><span class="math display">
-q - q_0- q_b = A\frac{dh}{dt}
+C_{As}=\frac{-1+9}{40}
 </span> <span class="math display">
-q - \frac{h-h_v}{R}- q_b = A\frac{dh}{dt} \space\space\space\space\space \textbf{(3)}
-</span></p>
-<p>Balance en estado estacionario</p>
-<p><span class="math display">
-q_s - \frac{h_s-h_v}{R}- q_b = 0 \space\space\space\space\space \textbf{(4)}
-</span></p>
-<p>Restando (3) con (4) para obtener las variables desviación y recordando que <span class="math inline">dh=d(h-h_s)</span>, por ser <span class="math inline">h_s</span> constante.</p>
-<p><span class="math display">
-q - q_s- \frac{h-h_s}{R} = A\frac{d(h-h_s)}{dt}
+C_{As}=0.2
+</span> Reemplazando en la ecuación (4) <span class="math display">
+5C'_{A0}(s)-5C'_A(s)-2\times 0.2\times 2\times 50\times C'_A(s)=50\times sC'_A(s)
 </span></p>
 <p><span class="math display">
-Q -\frac{H}{R} = A\frac{dH}{dt}
-</span></p>
-<p>Aplicando la tranformada de Laplace, sabiendo que <span class="math inline">H(t=0)= h-h_s=h_s-h_s=0</span>, <span class="math inline">A=1\text{ pie}</span> y <span class="math inline">R=0.5\text{ pie/(pie³/min)}</span>.</p>
-<p><span class="math display">
-Q(s) -\frac{H(s)}{R} = A(sH(s)-H(t=0))\\
-</span> <span class="math display">
-\frac{H(s)}{Q(s)}  = \frac{R}{ARs+1}
+C'_{A0}(s)-9C'_A(s)=10 sC'_A(s)
 </span></p>
 <p><span class="math display">
-\mathbf{\frac{H(s)}{Q(s)}  = \frac{0.5}{0.5s+1}}
+\mathbf{\frac{C'_{A}(s)}{C'_{A0}(s)}=\frac{1}{10s+9}}\space\space\space\space\space\textbf{... (5)}
+</span></p>
+<p>Describiendo la perturbación</p>
+<p><span class="math display">
+C'_{A0}(t)=C_{A0}-C_{A0s}=
+\begin{cases}
+   1 - 1 &amp;\text{si } t &lt; 0 \\
+   2 - 1 \space\ mol/L &amp;\text{si } t&gt;0\\
+\end{cases}
+</span></p>
+<p><span class="math display">
+C'_{A0}(t)=
+\begin{cases}
+   0 &amp;\text{si } t &lt; 0 \\
+   1 \space\ mol/L &amp;\text{si } t&gt;0\\
+\end{cases}
+</span></p>
+<p><span class="math display">
+C'_{A0}(t)= 1\space u(t)
+</span></p>
+<p>Entonces su transforma da de Laplace es</p>
+<p><span class="math display">
+C'_{A0}(s)= \frac{1}{s}
+</span></p>
+<p>Reemplazando en la ecuación (5)</p>
+<p><span class="math display">
+C'_{A}(s)=C'_{A0}\frac{1}{10s+9}
+</span></p>
+<p><span class="math display">
+C'_{A}(s)=\frac{1}{s(10s+9)}
+</span></p>
+<p>Reordenando para obtener la antitransformada (Recuerde que tambien puede obtener la antitransformada directamente de tablas)</p>
+<p><span class="math display">
+C'_{A}(s)=\frac{9}{9s(10s+9)}=\frac{9+10s-10s}{9s(10s+9)}
+</span></p>
+<p><span class="math display">
+C'_{A}(s)=\frac{9+10s}{9s(10s+9)}-\frac{10s}{9s(10s+9)}
+</span></p>
+<p><span class="math display">
+C'_{A}(s)=\frac{1}{9s}-\frac{10}{9(10s+9)}
+</span></p>
+<p><span class="math display">
+C'_{A}(s)=\frac{1}{9s}-\frac{1}{9(s+9/10)}
+</span></p>
+<p>Antitransformando</p>
+<p><span class="math display">
+C'_A(t) = \frac{1}{9}-\frac{1}{9}e^{-9t/10}
+</span></p>
+<p>Hallando la concentración cuando t = 1 min</p>
+<p>$$ C_A(t=1) = C’<em>A(t=1)+C</em>{As}</p>
+<p>$$</p>
+<p><span class="math display">
+C_A(t=1)=\frac{1}{9}(1-e^{-9/10})+0.2
+</span></p>
+<p><span class="math display">
+\mathbf{C_A(t=1\textbf{ min})=0.2659\textbf{ mol/L}}
+</span> Para hallar la nueva concentración en el estado estacionario hacemos que el tiempo tienda a infinito (<span class="math inline">t\to\infty</span>)</p>
+<p><span class="math display">
+C_A(t\to\infty)=\lim_{t\to\infty}\left(\frac{1}{9}(1-e^{-9t/10})+0.2\right)
+</span></p>
+<p><span class="math display">
+\mathbf{C_A(t\to\infty)=\textbf{ 0.3111 mol/L}}
 </span></p>
 </section>
 </section>
@@ -474,13 +542,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./p5.1-babatunde.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Un calentador que deja de funcionar</span></span>
+      <a href="./p5.9-seborg.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dos tanques uno con una válvula y el otro con una bomba</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./p5.2-coughanowr.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Un tanque con una bomba y una válvula de resistencia variable</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./p5.18-coughanowr.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Un Cono por tanque con una válvula.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
