@@ -61,12 +61,11 @@ $$
 Despejando y sabiendo que $\tau=AR$
 
 $$
-
-\frac{H(s)}{Q(s)}=\frac{R}{ARs+1} \\
+\frac{H(s)}{Q(s)}=\frac{R}{ARs+1} 
 $$
-$$
-\frac{H(s)}{Q(s)}=\frac{R}{\tau s+1} \\
 
+$$
+\frac{H(s)}{Q(s)}=\frac{R}{\tau s+1} 
 $$
 
 Reemplazando los valores $\tau = 1$ y $R=0.5$

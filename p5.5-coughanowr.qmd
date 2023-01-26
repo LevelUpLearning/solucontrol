@@ -7,10 +7,11 @@ date: 2022-10-06
 ## Problema 5.5 (Process Systems Analysis and Control - Coughanowr, LeBlanc)
 
 ![gráfica problema 5.5](./images/p5.5-coughanowr/headercontrol.png)
+
 Considere el tanque agitado mostrado en la figura. La reacción que ocurrre es:
 
 $$
-A \to B\\
+A \to B
 $$
 
 Con una velocidad de reacción igual a:
